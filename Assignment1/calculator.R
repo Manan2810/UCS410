@@ -1,5 +1,0 @@
-num1<-as.integer(readline (prompt="Enter the first number:"))
-num2<-as.integer(readline (prompt="Enter the second number:"))
-choice<-as.integer(readline (prompt="Enter the choice:"))
-result=switch(choice,num1+num2,num1-num2,num1*num2,num1/num2)
-print(result)
