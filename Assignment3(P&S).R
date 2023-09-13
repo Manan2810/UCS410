@@ -39,9 +39,55 @@ print(percentage_above_threshold)
 
 #approach 2
 a=pnorm(84,mean=72,sd=15.2,lower.tail=FALSE)
+#percentage(p)
 p=a*100
 print(p)
 
+#Q3 On the average, five cars arrive at a particular car wash every hour. Let X count the
+#number of cars that arrive from 10AM to 11AM, then X ∼Poisson(λ = 5). What is
+#probability that no car arrives during this time. 
+
+ppois(0,5)
+
+#Next, suppose the car wash above
+#is in operation from 8AM to 6PM, and we let Y be the number of customers that
+#appear in this period. Since this period covers a total of 10 hours, we get that Y ∼
+#Poisson(λ = 5×10 = 50). What is the probability that there are between 48 and 50
+#customers, inclusive?
+
+lambda=50
+ppois(50,lambda)-ppois(47,lambda)
+
+#Q4Suppose in a certain shipment of 250 Pentium processors there are 17 defective pro-
+#cessors. A quality control consultant randomly collects 5 processors for inspection to
+#determine whether or not they are defective. Let X denote the number of defectives
+#in the sample. Find the probability of exactly 3 defectives in the sample, that is, find
+#P(X = 3).
+
+dhyper(3,250,17,5)
+
+#Q5 A recent national study showed that approximately 44.7% of college students have
+#used Wikipedia as a source in at least one of their term papers. Let X equal the
+#number of students in a random sample of size n = 31 who have used Wikipedia as a
+#source.
+
+# Define the parameters
+n <- 31
+p <- 0.447
+
+#(a) How is X distributed?
+#(b) Sketch the probability mass function.
+x <- 0:n
+pmf <- dbinom(x, size = n, prob = p)
+plot(x, pmf, type = "h", lwd = 3, xlab = "Number of students using Wikipedia as a source", ylab = "Probability", main = "Probability mass function")
+#(c) Sketch the cumulative distribution function.
+cdf <- pbinom(x, size = n, prob = p)
+plot(x, cdf, type = "s", lwd = 3, xlab = "Number of students using Wikipedia as a source", ylab = "Cumulative probability", main = "Cumulative distribution function")
+#(d) Find mean, variance and standard deviation of X.
+mean1=n*p
+variance=n*p*(1-p)
+standard_deviation=variance^0.5
+cat(mean1,variance,standard_deviation)
 
 
 
